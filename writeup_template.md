@@ -190,19 +190,60 @@ showing 30 kph was particularly poor, since the training-set for the class 30 kp
 
 The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the first image, the model is relatively sure that this is a Turn right ahead sign witha  very high probability of 0.99 whereas the image is actually that of a 30 kph speed limit sign. The top five soft max probabilities are as below, none of which belong to the Traffic Sign Class of 30 kph, indicating a very bad case of mis-classification:
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+| 9.99685049e-01		|  Turn right ahead								| 
+| 3.14376637e-04		| Keep left								     	|
+| 5.09809013e-07		| Go straight or left							|
+| 1.60833210e-07		| Yield			 			                 	|
+| 2.68427058e-08	    |  End of all speed and passing limits			|
 
 
-For the second image ... 
 
+For the second image, the prediction is Priority Road with almost 100% certainity and the image is indeed that of a Priority Road Traffic Sign and has very low probabilities(almost close to zero) for the other 4 top classes. This is expected as in the resized scaled-down image too, its quite clearly visible that the sign is that of a Priority Road.
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 1.00000000e+00		|  Priority road								| 
+| 1.79868745e-26		| Stop								     	    |
+| 2.25483209e-31		| Ahead only							        |
+| 1.74094901e-33		| No passing for vehicles over 3.5 metric tons	|
+| 1.12303819e-33	    |  Go straight or left			                |
+
+For the third image, the prediction with the highest probability is that of Right-of-way at the next intersection, where-as the actual image is that of a Road-Work Traffic sign. This mis-classification was somewhat expected due to high presence of noise in the Red channel of the image.However the second top-most prediction is that of Road-work which is the actual correct prediction.
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 9.91569996e-01		|  Right-of-way at the next intersection		| 
+| 8.14233441e-03		| Road work								     	|
+| 2.87614472e-04		| Pedestrians							        |
+| 4.22264144e-08		| Children crossing	                            |
+| 2.53426252e-10	    |  Speed limit (20km/h)			                |
+
+For the fourth image, the top-most prediction of that ofRound-about mandatory is indeed correct and the prediction is that of almost certaintly(close to 1):
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 1.00000000e+00		|  Roundabout mandatory		| 
+| 3.71758830e-13		| Go straight or left			     	|
+| 1.15623851e-15		| Keep right					        |
+| 5.68447675e-16		| Speed limit (50km/h)	                |
+| 5.99329147e-17	    |  Ahead only			                |
+
+For the fifth image, the top-most prediction is that of Children Crossing with very high probability of 0.990 which is indeed correct as the image is that of a Chilren-Crossing Traffic Sign.
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 9.90863383e-01		|  Children crossing		                    | 
+| 9.07240435e-03		| Priority road								   	|
+| 3.33693351e-05		| Pedestrians						            |
+| 1.55608031e-05		| Right-of-way at the next intersection         |
+| 1.25292754e-05	    |  Beware of ice/snow          	                |
+
+
+         
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
 
